@@ -1,0 +1,28 @@
+{
+  "name": "Smart-Web-App-Banner",
+  "version": "1.0.1",
+  "description": "[jQuery Smart Web App Banner](http://kurtzenisek.com/p/smart-web-banner/) ===========================",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tellurium/Smart-Web-App-Banner.git"
+  },
+  "author": "huairenpp@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tellurium/Smart-Web-App-Banner/issues"
+  },
+  "homepage": "https://github.com/tellurium/Smart-Web-App-Banner",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-minify-css": "^1.0.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.3",
+    "gulp-snippets": "file:../../../../../var/folders/pd/cjn6cthj1xj2mk7q8bb4t5m40000gn/T/npm-19240-7b36f5f3/1426498676125-0.16271385154686868/83755812bf2917cce020b8ba11dc7882762831ce",
+    "gulp-uglify": "^1.1.0",
+    "gulp-watch": "^4.1.1"
+  }
+}
