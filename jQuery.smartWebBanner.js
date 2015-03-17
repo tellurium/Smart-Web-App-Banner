@@ -167,6 +167,11 @@
             }
         }
 
+        // Do not show banner if it is running on Safari on iOS device
+        if ((iPhone || iPad) && Safari) {
+            return;
+        }
+
         if(opts.debug || (/* (iPhone || iPad) && Safari && */ !standalone && typeof getCookie('swb-closed') == 'undefined' && typeof getCookie('swb-saved') == 'undefined')){ // Show if debug. Show if iPhone/iPad in Mobile Safari & don't have cookies already.
             createBanner();
             showBanner();
