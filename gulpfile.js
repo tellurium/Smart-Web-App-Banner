@@ -50,7 +50,7 @@ gulp.task('minify-css', function () {
 });
 
 /**
- * @task
+ * @task Watch file changes
  */
 gulp.task('watch', function () {
     gulp.watch('./*.js', [ 'uglify-js' ]);

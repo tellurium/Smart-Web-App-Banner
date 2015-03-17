@@ -46,7 +46,8 @@
                 case 'hide':
                     if($('#smartWebBanner').hasClass('shown')){
                         origHtmlMargin = origHtmlMargin-bannerHeight; // The "original" value actually includes the banner's added margin when this is called so we need to take it out
-                        closeBanner();
+                        // close but make it display next time
+                        closeBanner(true);
                     }
                     return false;
             }
@@ -113,7 +114,7 @@
                 return false;
             });
         }
-        function closeBanner(){
+        function closeBanner(once){
             $('#smartWebBanner').stop().animate({
                 top:-(bannerHeight+(bannerHeight/3))
             },opts.speedOut).removeClass('shown');
@@ -121,10 +122,12 @@
                 marginTop:origHtmlMargin
             },opts.speedOut);
             hideInstructions();
-            setCookie('swb-closed','true',opts.daysHidden);
+            if (!once) {
+                setCookie('swb-closed','true',opts.daysHidden);
+            }
         }
         function goDownloadPage(){
-            console.log('ready to go to download page');
+            setCookie('swb-saved','true',opts.daysReminder);
             if (opts.url) {
                 window.location.href = opts.url
             }
@@ -164,7 +167,7 @@
             }
         }
 
-        if(opts.debug || (/* (iPhone || iPad) && */ Safari && !standalone && typeof getCookie('swb-closed') == 'undefined' && typeof getCookie('swb-saved') == 'undefined')){ // Show if debug. Show if iPhone/iPad in Mobile Safari & don't have cookies already.
+        if(opts.debug || (/* (iPhone || iPad) && Safari && */ !standalone && typeof getCookie('swb-closed') == 'undefined' && typeof getCookie('swb-saved') == 'undefined')){ // Show if debug. Show if iPhone/iPad in Mobile Safari & don't have cookies already.
             createBanner();
             showBanner();
         }
