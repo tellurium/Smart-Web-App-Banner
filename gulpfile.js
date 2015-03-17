@@ -9,9 +9,9 @@ var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 
 // project variables
-var _base = 'jQuery.smartWebBanner.min';
+var _base = 'jQuery.smartWebBanner';
 var _jsFile = _base + '.js';
-var _csssFile = _base + '.css';
+var _cssFile = _base + '.css';
 
 /**
  * @task List all available tasks
@@ -30,7 +30,7 @@ gulp.task('uglify-js', function () {
     gulp.src(_jsFile)
         .pipe(uglify())
         .pipe(rename({
-            basename: _base,
+            basename: _base + '.min',
             extname: '.js'
         }))
         .pipe(gulp.dest('./'));
@@ -40,10 +40,10 @@ gulp.task('uglify-js', function () {
  * @task Minify css files
  */
 gulp.task('minify-css', function () {
-    gulp.src(_csssFile)
+    gulp.src(_cssFile)
         .pipe(minifycss())
         .pipe(rename({
-            basename: _base,
+            basename: _base + '.min',
             extname: '.css'
         }))
         .pipe(gulp.dest('./'));
@@ -53,6 +53,6 @@ gulp.task('minify-css', function () {
  * @task Watch file changes
  */
 gulp.task('watch', function () {
-    gulp.watch('./*.js', [ 'uglify-js' ]);
-    gulp.watch('./*.css', [ 'minify-css' ]);
+    gulp.watch(_jsFile, [ 'uglify-js' ]);
+    gulp.watch(_cssFile, [ 'minify-css' ]);
 });
